@@ -1,7 +1,8 @@
 # ONT-Nanopore-bioinformatics-analysis
-16S_Barcoding  ITS_1_4
+Necrosis_16S  Necrosis_ITS
 # Basecalling avec guppy
-guppy_basecaller -c dna_r9.4.1_XXXbps_XXX.cfg -i -o -s --detect_adapter --trim_adapters --min_qscore 7 --cpu_threads_per_caller 8#
+guppy_basecaller -i /projects/large/CIBIG_root/Necrosis_16S/fast5_pass -r -s Basecalling_work/ -c dna_r9.4.1_450bps_hac.cfg --min_qscore 8 --cpu_threads_per_caller 8 --detect_adapter --trim_adapters --detect_barcodes --compress_fastq --num_
+callers 8 --chunks_per_runner 6
 # Contrôle qualité de FASTQ avec Nanoplot
 nanoplot -t --fastq sample.fastq --outdir nanoplot_output/
 # Nettoyage par mappage : Supprimer les lectures de l’hôte avec minimap
