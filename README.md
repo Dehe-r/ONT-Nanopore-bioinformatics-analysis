@@ -4,7 +4,7 @@ Necrosis_16S  Necrosis_ITS
 guppy_basecaller -i /projects/large/CIBIG_root/Necrosis_16S/fast5_pass -r -s Basecalling_work/ -c dna_r9.4.1_450bps_hac.cfg --min_qscore 8 --cpu_threads_per_caller 8 --detect_adapter --trim_adapters --detect_barcodes --compress_fastq --num_
 callers 8 --chunks_per_runner 6
 # Contrôle qualité de FASTQ avec Nanoplot
-nanoplot -t --fastq sample.fastq --outdir nanoplot_output/
+NanoPlot -t 10 --fastq /scratch/CIBIG_root/FASTQ/pass/barcode02/*.fastq.gz -o QC_16s/NANOPLOT_barcode02
 # Nettoyage par mappage : Supprimer les lectures de l’hôte avec minimap
 minimap2 -ax map-ont reference_genome.fasta sample.fastq > sample_aligned.sam
 # assemblage de lecture avec flye ou SPAdes
